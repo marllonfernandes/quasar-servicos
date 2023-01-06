@@ -1,47 +1,51 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
+  <!--
+  Forked from:
+  https://quasar.dev/layout/drawer#example--mini-to-overlay
+-->
+<div id="q-app" style="min-height: 100vh;">
+  <div class="q-pa-md">
+    <q-layout view="hHh Lpr lff" >
+      <q-header style="background: #0C9ACD; color: white">
+        <q-toolbar>
+          <q-btn flat @click="drawer = !drawer" round dense icon="menu"></q-btn>
+          <q-toolbar-title>Header</q-toolbar-title>
+        </q-toolbar>
+      </q-header>
 
-        <q-toolbar-title>
-          TI Serviços App
-        </q-toolbar-title>
+      <q-drawer
+        v-model="drawer"
+        show-if-above
 
-        <!-- <div>Quasar v{{ $q.version }}</div> -->
-      </q-toolbar>
-    </q-header>
+        :mini="miniState"
+        @mouseover="miniState = false"
+        @mouseout="miniState = true"
+        mini-to-overlay
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
-      <q-list>
-        <q-item-label
-          header
-        >
-        </q-item-label>
+        :width="200"
+        :breakpoint="500"
+        bordered
+        class="bg-grey-3"
+      >
+        <q-scroll-area class="fit" :horizontal-thumb-style="{ opacity: 0 }">
+          <q-list padding>
+            <EssentialLink
+              v-for="link in essentialLinks"
+              :key="link.title"
+              v-bind="link"
+            />
+          </q-list>
+        </q-scroll-area>
+      </q-drawer>
 
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
-
-    <q-page-container>
-      <router-view />
-    </q-page-container>
-  </q-layout>
+      <q-page-container >
+        <q-page padding >
+          <router-view />
+        </q-page>
+      </q-page-container>
+    </q-layout>
+  </div>
+</div>
 </template>
 
 <script>
@@ -65,20 +69,14 @@ const linksList = [
 
 export default defineComponent({
   name: 'MainLayout',
-
   components: {
     EssentialLink
   },
-
   setup () {
-    const leftDrawerOpen = ref(false)
-
     return {
       essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
+      drawer: ref(false),
+      miniState: ref(true)
     }
   }
 })

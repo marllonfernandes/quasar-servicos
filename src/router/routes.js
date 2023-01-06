@@ -6,7 +6,7 @@ const routes = [
     children: [
       { path: '', name: 'home', component: () => import('pages/IndexPage.vue') },
       { path: '/proxy', name: 'proxy', component: () => import('pages/ProxyPage.vue') },
-      { path: '/proxy-add', name: 'addProxy', component: () => import('pages/AddProxyPage.vue') }
+      { path: '/proxy-form/:name?', name: 'formProxy', component: () => import('pages/FormProxyPage.vue') }
     ]
   },
 
