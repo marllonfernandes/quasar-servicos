@@ -3,13 +3,13 @@
   Forked from:
   https://quasar.dev/layout/drawer#example--mini-to-overlay
 -->
-<div id="q-app" style="min-height: 100vh;">
+<div id="q-app" class="bg-grey-1">
   <div class="q-pa-md">
     <q-layout view="hHh Lpr lff" >
       <q-header style="background: #0C9ACD; color: white">
         <q-toolbar>
           <q-btn flat @click="drawer = !drawer" round dense icon="menu"></q-btn>
-          <q-toolbar-title>Header</q-toolbar-title>
+          <q-toolbar-title>Portal de Serviços</q-toolbar-title>
         </q-toolbar>
       </q-header>
 
@@ -39,7 +39,7 @@
       </q-drawer>
 
       <q-page-container >
-        <q-page padding >
+        <q-page >
           <router-view />
         </q-page>
       </q-page-container>

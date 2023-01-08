@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent.stop="onSubmit" class="q-gutter-md">
+    <form @submit.prevent.stop="onSubmit" class="q-gutter-md" style="background-color: white;">
 
       <div class="col-lg-06 col-xs-12 q-pt-sm q-gutter-sm">
         <q-input
@@ -19,7 +19,7 @@
           :rules="[val => !!val || 'Field is required']"
         />
       </div>
-      <div class="col-lg-2 col-xs-12">
+      <div class="col-lg-2 col-xs-12" >
         <q-checkbox v-model="form.active" label="Ativa" style="color: #0C9ACD" text-color="white" color="cyan" />
       </div>
       <div class="col-lg-4 col-xs-12">
@@ -67,7 +67,7 @@
       </div>
       <div class="col-lg-12 col-xs-12 q-pt-sm q-gutter-sm">
         <!-- <q-btn-group push class="float-right"> -->
-          <q-btn size="md"  unelevated  label="Confirmar"   style="background: #0C9ACD; color: white" class="float-right" type="submit" />
+          <q-btn size="md"  unelevated  label="Confirmar" color="secondary" class="float-right" type="submit" />
           <q-btn size="md"  unelevated  label="Fechar"  style="background: white; color: #0C9ACD" class="float-right" :to="{ name: 'proxy' }" />
           <q-btn size="md"  label="Deletar" outline  color="negative" class="float-right" v-if="form._id" @click="removeRow(form)" />
         <!-- </q-btn-group> -->

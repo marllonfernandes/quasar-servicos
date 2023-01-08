@@ -17,5 +17,5 @@ import {Dark,Dialog,Notify} from 'quasar'
 
 
 
-export default { config: {},plugins: {Dark,Dialog,Notify} }
+export default { config: {"brand":{"secondary":"#0C9ACD"}},plugins: {Dark,Dialog,Notify} }
 

@@ -1,7 +1,7 @@
 <template>
-  <q-list>
+  <q-list style="background-color: white;">
     <q-item-label header>
-      <q-btn unelevated style="background: #0C9ACD; color: white" size="md" label="Adicionar"
+      <q-btn unelevated color="secondary" size="md" label="Adicionar"
         :to="{ name: 'formProxy' }" />
     </q-item-label>
 
@@ -36,7 +36,7 @@ import proxiesService from '../services/ProxyRoutes'
 import { useRouter } from 'vue-router'
 
 export default defineComponent({
-  name: 'IndexPage',
+  name: 'ProxyPage',
   setup() {
     const loading = ref(false)
     const rows = ref([])
